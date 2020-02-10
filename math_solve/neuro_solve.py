@@ -6,9 +6,8 @@ def f(x):
 
 
 def nonlin(x, deriv=False):
-    if (deriv == True):
+    if deriv is True:
         return f(x) * (1 - f(x))
-
     return 1 / (1 + np.exp(-x))
 
 
@@ -39,6 +38,7 @@ for j in range(60000):
     l2_error = y - l2
 
     if (j % 10000) == 0:
+        print([round(k, 3) for k in l1[0]])
         print("Error:" + str(np.mean(np.abs(l2_error))))
 
     # в какую сторону нужно двигаться?
